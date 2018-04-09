@@ -17,15 +17,67 @@
       background-color: white;
     }
     .loading .pic {
-      width: 64px;
-      height: 64px;
-      background: url("images/loading.gif") no-repeat;
+      width: 50px;
+      height: 50px;
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
       top: 0;
       margin: auto;
+    }
+    .loading .pic i {
+      display: block;
+      float: left;
+      width: 6px;
+      height: 50px;
+      background: #399;
+      margin: 0 2px;
+      -webkit-transform: scaleY(0.4);
+      -ms-transform: scaleY(0.4);
+      transform: scaleY(0.4);
+      -webkit-animation: load 1.2s infinite;
+      animation: load 1.2s infinite;
+    }
+    .loading .pic i:nth-child(1) {
+    }
+    .loading .pic i:nth-child(2) {
+      -webkit-animation-delay: 0.1s;
+      animation-delay: 0.1s;
+    }
+    .loading .pic i:nth-child(3) {
+      -webkit-animation-delay: 0.2s;
+      animation-delay: 0.2s;
+    }
+    .loading .pic i:nth-child(4) {
+      -webkit-animation-delay: 0.3s;
+      animation-delay: 0.3s;
+    }
+    .loading .pic i:nth-child(5) {
+      -webkit-animation-delay: 0.4s;
+      animation-delay: 0.4s;
+    }
+
+    @-webkit-keyframes load {
+      0%,40%,100% {
+        -webkit-transform: scaleY(0.4);
+        transform: scaleY(0.4);
+      }
+      20% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+      }
+    }
+
+    @keyframes load {
+      0%,40%,100% {
+        -webkit-transform: scaleY(0.4);
+        transform: scaleY(0.4);
+      }
+      20% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+      }
     }
   </style>
   <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -39,7 +91,13 @@
 </head>
 <body>
 <div class="loading">
-  <div class="pic"></div>
+  <div class="pic">
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+  </div>
 </div>
 <img src="http://dl.bizhi.sogou.com/images/2012/02/11/25025.jpg" alt="图片1" width="1200">
 <img src="http://pic1.win4000.com/wallpaper/f/53bb9aa9c4eef.jpg" alt="图片2" width="1200">
