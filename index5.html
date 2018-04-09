@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>进度条</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      text-align: center;
+    }
+    .loading {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      background-color: white;
+    }
+    .loading .pic {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      font-size: 30px;
+      line-height: 100px;
+    }
+    .loading .pic span {
+      display: block;
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      border-radius: 50%;
+      box-shadow: 0 3px 0 #666;
+      -webkit-animation: rotate 1s infinite linear;
+      animation: rotate 1s infinite linear;
+    }
+    @-webkit-keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script>
+    $(function () {
+      var img =$("img"), num = 0;
+      img.each(function (i) {
+        var oImg = new Image();
+        oImg.onload = function () {
+          img.onload = null;
+          num++;
+          $(".loading b").html(parseInt(num / $("img").length * 100) + '%');
+          if (num === $("img").length) {
+            $(".loading").fadeOut();
+          }
+        };
+        oImg.src = img[i].src;
+      })
+    })
+  </script>
+</head>
+<body>
+<div class="loading">
+  <div class="pic">
+    <span></span>
+    <b>0%</b>
+  </div>
+</div>
+<img src="http://dl.bizhi.sogou.com/images/2012/02/11/25025.jpg" alt="图片1" width="800">
+<img src="http://pic1.win4000.com/wallpaper/f/53bb9aa9c4eef.jpg" alt="图片2" width="800">
+<img src="http://img.zcool.cn/community/03879005798abdc0000018c1b07f124.jpg" alt="图片3" width="800">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523286306897&di=c05b950393aead82c4c0a044755149fa&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D19de55d371899e516c8332572aceb346%2F0eb30f2442a7d933e4b1625da74bd11373f00186.jpg" alt="图片3" width="800">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523286306896&di=00281bf9c486166f569ffa50fa6b0d48&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3Dd98b7ef8c41b9d169eca92229bb7defa%2Ffcfaaf51f3deb48f23194df9fa1f3a292df578a1.jpg" alt="图片3" width="800">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523286306895&di=c74eaa812cdede86ca506072778aa361&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D8314ae6e2f1f95cab2f89af5a17e154b%2Fd0c8a786c9177f3e7317571d7acf3bc79f3d56fa.jpg" alt="图片3" width="800">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523286306895&di=398af92b0645cbab52affe746e21e782&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D4efd4e226d09c93d13ff06b4f75492a9%2F71cf3bc79f3df8dc56ea8bbdc711728b461028c2.jpg" alt="图片3" width="800">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523286306894&di=69fb26723a924157db8db47c9eadc3f6&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dpixel_huitu%252C0%252C0%252C294%252C40%2Fsign%3D550123260c0828387c00d454d1e1cc6d%2F42166d224f4a20a4345db4fe9b529822720ed04c.jpg" alt="图片3" width="800">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523286306894&di=68e8984520f18f229cb20cfde1a4a666&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D1745a8e614178a82da3177e39e6a19f8%2Fb8014a90f603738d3c145e08b91bb051f819ecba.jpg" alt="图片3" width="800">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523286306894&di=b6bd692fddaf0a55d4e60b887ee23596&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D8046954e2f2dd42a4b0409e86b5231c0%2F2934349b033b5bb59e86e0d93cd3d539b600bc40.jpg" alt="图片3" width="800">
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523286306894&di=7d1e833a2170afa3f0491a4ec2ab5da1&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D22412567f6039245b5b8e94ceffdceb7%2Fd788d43f8794a4c29c91348104f41bd5ac6e39ee.jpg" alt="图片3" width="800">
+</body>
+</html>
